@@ -42,7 +42,7 @@ const UploadVideo = () => {
         onChange={handlerUpload}
         className="border p-2"
       />
-      <button onClick={handleSampleVideo} className="mt-4 bg-blue-500 text-white p-2 rounded">
+      <button onClick={handleSampleVideo} className="bg-blue-600 hover:bg-blue-700 transition-all duration-300 px-4 py-2 rounded text-white m-3">
         Sample Video
       </button>
 
