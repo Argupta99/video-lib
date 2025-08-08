@@ -1,69 +1,92 @@
-# React + TypeScript + Vite
+# Video Timeline Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React application for interactive video exploration with timeline controls and visual markers. Built with TypeScript and styled using Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Video Management
+- Upload and preview local video files
+- Sample video option for quick testing
+- Responsive video player with standard controls
 
-## Expanding the ESLint configuration
+### Interactive Timeline
+- Horizontal timeline showing video duration
+- Time markers every 10 seconds
+- Draggable playhead synced with video playback
+- Hover preview showing timestamp
+- Visual indicators for:
+  - Key moments (blue markers)
+  - Silent segments (transparent)
+  - Highlight segments (yellow markers)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Responsive Design
+- Mobile-friendly layout
+- Fluid timeline that scales with screen width
+- Touch-friendly controls for mobile devices
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Technology Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **React** - UI components and state management
+- **TypeScript** - Type safety and better DX
+- **Tailwind CSS** - Utility-first styling
+- **Vite** - Build tool and dev server
+- **ESLint** - Code linting and style enforcement
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Prerequisites
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Node.js 16+ 
+- npm or yarn
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Installation
+
+1. Clone the repository
+```bash
+git clone <repository-url>
+cd video-libvideo-lib/
+├── src/
+│   ├── components/    # React components
+│   ├── utils/        # Helper functions
+│   ├── App.tsx       # Main application component
+│   └── main.tsx      # Application entry point
+└── public/           # Static assets
+
+Technical Challenges & Solutions
+Playhead Synchronization
+Implemented precise time calculation based on timeline width
+Used React refs to maintain direct video element control
+Added event listeners for time updates to keep UI in sync
+
+
+Mobile Responsiveness
+Used Tailwind's responsive classes for adaptive layouts
+Implemented touch events for mobile interaction
+Ensured timeline remains usable on smaller screens
+
+
+Timeline Preview: 
+Added hover state management for timestamp display
+Calculated preview position based on mouse coordinates
+Handled edge cases for timeline boundaries
+Trade-offs & Decisions
+
+Simple Animations
+
+Chose basic transitions over complex animations
+Focused on functionality and performance
+Met project deadline without feature compromise
+
+
+
+Component Architecture
+
+Split timeline into smaller, focused components
+Improved maintainability and testing
+Some prop drilling in favor of quick implementation
+
+Styling Approach
+
+Used Tailwind for rapid development
+Minimal custom CSS
+Consistent look across components
