@@ -65,17 +65,19 @@ const UploadVideo = () => {
 
           
           
-          {duration > 0 && (
-            <Timeline
-              duration={duration}
-              currentTime={currentTime}
-              onSeek={(time: number) => {
-                if (videoRef.current) {
-                  videoRef.current.currentTime = time;
-                }
-              }}
-            />
-          )}
+          {typeof duration === 'number' && duration > 0 && (
+  <Timeline
+    duration={duration}
+    currentTime={currentTime}
+    onSeek={(time: number) => {
+      if (videoRef.current) {
+        videoRef.current.currentTime = time;
+      }
+    }}
+    videoRef={videoRef} // ✅ This line was missing
+  />
+)}
+
         </div>
       )}
     </div>
