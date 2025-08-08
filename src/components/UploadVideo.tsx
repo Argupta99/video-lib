@@ -1,7 +1,6 @@
 //video and timeline layout 
 
-import {
-  useRef} from "react";
+import {useRef} from "react";
 import { useState } from "react";
 
 const UploadVideo = () => {
@@ -19,12 +18,23 @@ const videoRef = useRef<HTMLVideoElement>(null)
         const videoUrl = URL.createObjectURL(file);
         setVideoSrc(videoUrl);
     }
+
+
   };
   
   //sample video on button click
 
   const handleSampleVideo = () => {
-    setVideoSrc("/video/sample_video.mp4"); 
+    const video = videoRef.current;
+  if (video) {
+    video.pause();
+    video.removeAttribute('src'); 
+    video.load();                 
+  }
+
+    setVideoSrc('/video/sample.mp4'); // Replace with your sample video URL
+
+
   };
   
   return (
@@ -47,11 +57,15 @@ const videoRef = useRef<HTMLVideoElement>(null)
 
 {videoSrc && (
     <video
+    key={videoSrc} // Ensure the video element updates when the source changes
  ref={videoRef}
  src={videoSrc}
 controls
 width="100%"
-className="rounded shadow-lg mt-2"
+autoPlay
+muted
+ onError={(e) => console.error("Video load error:", e)}
+className="rounded shadow-lg mt-2 w-full h-auto"
 />
 )}
 </div>
