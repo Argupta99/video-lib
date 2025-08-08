@@ -1,4 +1,13 @@
 //actual timeline with markers
+
+
+
+
+
+
+
+
+
 type Props = {
     duration: number;
 }
