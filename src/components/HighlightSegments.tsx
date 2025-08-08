@@ -4,7 +4,7 @@ type Props = {
   duration: number;
 };
 
-const HighLightSegments = ({ duration }: Props) => {
+const HighlightSegments = ({ duration }: Props) => {
   // Dummy data
   const highlights = [
     { start: 10, end: 20 },
@@ -31,4 +31,4 @@ const HighLightSegments = ({ duration }: Props) => {
   );
 };
 
-export default HighLightSegments;
+export default HighlightSegments;

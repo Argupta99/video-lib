@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
-import HighLightSegments from "../components/HightLightSegments";
+import HighlightSegments from "../components/HighlightSegments";
+
 import HoverPreview from "../components/HoverPreview";
 import PlayHead from "../components/PlayHead";
 import TimeMarkers from "../components/TimeMarkers";
@@ -29,7 +30,7 @@ const Timeline = ({ duration, currentTime,videoRef,  onSeek }: TimelineProps) =>
 };
   return (
     <div className="relative w-full h-24 bg-gray-100 border-t border-b border-gray-300 mt-4">
-      <HighLightSegments duration={duration} />
+      <HighlightSegments duration={duration} />
       <TimeMarkers duration={duration} />
       <KeyMoments duration={duration} />
       <HoverPreview videoRef={videoRef} duration={duration} />
