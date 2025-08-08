@@ -1,8 +1,14 @@
+//video and timeline layout 
+
+import {
+  useRef} from "react";
 import { useState } from "react";
 
 const UploadVideo = () => {
+//reference to video element 
+const videoRef = useRef<HTMLVideoElement>(null)
     // State to hold the video file
-  const [videoSrc, setVideoSrc] = useState<string | null>(null);
+  const [videoSrc, setVideoSrc] = useState<string| null>(null);
    
   //file handler function 
 
@@ -11,13 +17,14 @@ const UploadVideo = () => {
 
     if (file) {
         const videoUrl = URL.createObjectURL(file);
+        setVideoSrc(videoUrl);
     }
   };
   
-  //button click handler to trigger file input
+  //sample video on button click
 
-  const handleInput = () => {
-    setVideoSrc("/path/to/video.mp4"); 
+  const handleSampleVideo = () => {
+    setVideoSrc("/video/sample_video.mp4"); 
   };
   
   return (
@@ -31,7 +38,7 @@ const UploadVideo = () => {
     className="border p-2"
 />
 
-<button onClick={handleInput} className="mt-4 bg-blue-500 text-white p-2 rounded">
+<button onClick={handleSampleVideo} className="mt-4 bg-blue-500 text-white p-2 rounded">
     Sample Video
 
 </button>
@@ -40,7 +47,8 @@ const UploadVideo = () => {
 
 {videoSrc && (
     <video
- src="{videoSrc}"
+ ref={videoRef}
+ src={videoSrc}
 controls
 width="100%"
 className="rounded shadow-lg mt-2"
