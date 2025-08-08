@@ -2,7 +2,8 @@ import React, { useRef, useState } from "react";
 import HighlightSegments from "../components/HighlightSegments";
 
 import HoverPreview from "../components/HoverPreview";
-import PlayHead from "../components/PlayHead";
+import PlayHead from "../components/Playhead";
+
 import TimeMarkers from "../components/TimeMarkers";
 import KeyMoments from "../components/keyMoments";
 
